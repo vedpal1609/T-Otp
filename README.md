@@ -1,18 +1,13 @@
 # T-Otp
 
 
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Controller 
-
-
-
 
 
 package com.totpmain.Controller;
 
 import java.io.FileOutputStream;
 import java.util.Base64;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -49,9 +44,8 @@ public class Controller {
     
     String secret ="";  
 
- //============================QR Generator=====================================================
-
-    @GetMapping("/QRGenerator")
+    @GetMapping("/QRGenerator")// --------QRGenerator --------
+    
     public String setupDevice() throws QrGenerationException {
     	secret = secretGenerator.generate();       
         QrData data = qrDataFactory.newBuilder()
@@ -80,10 +74,8 @@ public class Controller {
 	}
 	
 	
-	
-//============================Token verifier=====================================================
-		 
-	    @PostMapping("/TokenVerify")
+			 
+	    @PostMapping("/TokenVerify")  // ---------Token Verify
 	    @ResponseBody
 	    public String verify(@RequestParam String code) {
 	         
@@ -95,9 +87,8 @@ public class Controller {
 	     
 	    }
 	 
-//============================QR Recovery=====================================================
 
-	    @GetMapping("/QRrecovery")
+	    @GetMapping("/QRrecovery")//------QR recovery
 		 
 		  public String[] recoveryCodes() { String[] codes =
 		  recoveryCodeGenerator.generateCodes(16); return codes; }
@@ -107,8 +98,7 @@ public class Controller {
     
     
     
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-Configuration
+/// Configuration
     
     
     
@@ -140,8 +130,7 @@ public class AppConfig {
     
     
     
- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
- Properties  
+/////-------- Properties  
 
 
 totp.secret.length=32
@@ -153,11 +142,9 @@ totp.time.discrepancy=0
 
 
 
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-Dependency 
+/////--------Dependency 
 
-
-<dependency>
+                <dependency>
 			<groupId>dev.samstevens.totp</groupId>
 			<artifactId>totp</artifactId>
 			<version>1.7.1</version>
