@@ -138,7 +138,7 @@ totp.code.length=8
 
 totp.time.period=30
 
-totp.time.discrepancy=2
+totp.time.discrepancy=4
 
 
 
