@@ -3,7 +3,7 @@
 
 Controller 
 
-
+{
 package com.totpmain.Controller;
 
 import java.io.FileOutputStream;
@@ -96,7 +96,7 @@ public class Controller {
 }
     
     
-    
+}    
     
 /// Configuration
     
