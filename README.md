@@ -70,23 +70,7 @@ public class Controller {
 
         
         String qrCodeImage = getDataUriForImage(qrGenerator.generate(data), qrGenerator.getImageMimeType());
-                            FileOutputStream fos;
-		try {
-			fos = new FileOutputStream("D:\\ved.png");
-			fos.write(qrGenerator.generate(data));
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return secret;
-        
-    }
-    
-	private String getDataUriForImage(byte[] generate, String imageMimeType) {		 
-		String text = Base64.getEncoder().encodeToString(generate);		
-		return null;
-	}
-	
+                            
 	
 			 
 	    @PostMapping("/TokenVerify")  // ---------Token Verify
@@ -148,13 +132,13 @@ public class AppConfig {
     
 //============== Properties  ===========
 
-totp.secret.length=32
+totp.secret.length=152
 
-totp.code.length=6
+totp.code.length=8
 
 totp.time.period=30
 
-totp.time.discrepancy=0
+totp.time.discrepancy=2
 
 
 
@@ -172,11 +156,6 @@ totp.time.discrepancy=0
 			<version>3.6</version>
 		</dependency>
 
-		<dependency>
-			<groupId>dev.samstevens.totp</groupId>
-			<artifactId>totp-spring-boot-starter</artifactId>
-			<version>1.7.1</version>
-		</dependency>
     
     
     
